@@ -17,7 +17,7 @@ class GeminiProvider {
     fun getGeminiProvider(): GenerativeModel {
         return  GenerativeModel(
             modelName = "gemini-1.5-pro-latest",
-            apiKey = BuildConfig.API_KEY
+            apiKey = BuildConfig.GEMINI_API_KEY
         )
     }
 

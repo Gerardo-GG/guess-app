@@ -87,6 +87,10 @@ dependencies {
     // Gemini AI
     implementation(libs.generativeai)
 
+    // Retrofit
+    implementation(libs.bundles.retrofit)
+    implementation(libs.coroutines)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

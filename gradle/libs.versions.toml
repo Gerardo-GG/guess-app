@@ -13,10 +13,13 @@ composeBom = "2024.04.01"
 hiltAndroid = "2.51"
 hiltNavigationCompose = "1.2.0"
 secretsGradlePlugin = "2.0.1"
+# Retrofit
+retrofit-version = "2.11.0"
+# Coroutines
+coroutines = "1.8.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -39,8 +42,21 @@ dagger-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", ver
 # Secrets
 secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secretsGradlePlugin" }
 
+# Gemini AI
+generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
+
+# Retrofit dependencies
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-version" }
+
+# Coroutines dependencies
+coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 # Dagger Hilt
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
+
+[bundles]
+retrofit = ["retrofit", "retrofit-gson"]

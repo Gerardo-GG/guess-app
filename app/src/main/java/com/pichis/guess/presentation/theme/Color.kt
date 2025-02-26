@@ -1,4 +1,4 @@
-package com.pichis.guess.ui.theme
+package com.pichis.guess.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
