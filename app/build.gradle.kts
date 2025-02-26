@@ -1,10 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
     kotlin("kapt")
     alias(libs.plugins.hilt)
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+}
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
 }
 
 android {
@@ -17,6 +25,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "API_KEY", "\"${localProperties.getProperty("API_KEY")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -51,21 +60,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-}
-
-secrets {
-    // Optionally specify a different file name containing your secrets.
-    // The plugin defaults to "local.properties"
-    propertiesFileName = "secrets.properties"
-
-    // A properties file containing default secret values. This file can be
-    // checked in version control.
-    defaultPropertiesFileName = "local.defaults.properties"
-
-    // Configure which keys should be ignored by the plugin by providing regular expressions.
-    // "sdk.dir" is ignored by default.
-    ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
-    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
 
 dependencies {

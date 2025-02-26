@@ -1,4 +1,4 @@
-package com.pichis.guess.presentation.theme
+package com.pichis.guess.presentation.view.theme
 
 import android.app.Activity
 import android.os.Build

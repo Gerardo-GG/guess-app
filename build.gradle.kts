@@ -5,9 +5,3 @@ plugins {
 
     alias(libs.plugins.hilt) apply false
 }
-
-buildscript {
-    dependencies {
-        classpath(libs.secrets.gradle.plugin)
-    }
-}
