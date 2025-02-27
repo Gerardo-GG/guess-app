@@ -1,7 +1,8 @@
 package com.pichis.guess.core.di
 
 import com.google.ai.client.generativeai.GenerativeModel
-import com.pichis.guess.BuildConfig
+import com.pichis.guess.data.ai.GeminiRepositoryImpl
+import com.pichis.guess.domain.interfaces.GeminiRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,14 +11,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class GeminiProvider {
+class RepositoryProvider {
 
     @Singleton
     @Provides
-    fun getGeminiProvider(): GenerativeModel {
-        return  GenerativeModel(
-            modelName = "gemini-2.0-flash-lite",
-            apiKey = BuildConfig.API_KEY
-        )
+    fun geminiRepositoryProvider(model: GenerativeModel): GeminiRepository {
+        return GeminiRepositoryImpl(model)
     }
+
 }

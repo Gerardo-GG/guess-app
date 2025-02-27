@@ -4,7 +4,7 @@ import com.google.ai.client.generativeai.GenerativeModel
 import com.pichis.guess.domain.interfaces.GeminiRepository
 import javax.inject.Inject
 
-class GeminiRepositoryImpl @Inject constructor(
+class GeminiRepositoryImpl @Inject constructor (
     private val model: GenerativeModel
 ): GeminiRepository {
 

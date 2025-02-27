@@ -1,6 +1,5 @@
 [versions]
 agp = "8.6.0"
-generativeai = "0.9.0"
 kotlin = "1.9.25"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -17,6 +16,10 @@ secretsGradlePlugin = "2.0.1"
 retrofit-version = "2.11.0"
 # Coroutines
 coroutines = "1.8.1"
+# Firebase
+firebaseBom = "33.7.0"
+# Google AI
+generativeai = "0.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +54,10 @@ retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ver
 
 # Coroutines dependencies
 coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Firebase dependencies
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

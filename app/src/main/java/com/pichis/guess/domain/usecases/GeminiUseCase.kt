@@ -5,7 +5,7 @@ import com.pichis.guess.domain.interfaces.GeminiRepository
 import javax.inject.Inject
 
 class GeminiUseCase @Inject constructor(
-    private val repository: GeminiRepositoryImpl
+    private val repository: GeminiRepository
 ) {
     suspend operator fun invoke(prompt: String): Array<String> = repository.generateCardsText(prompt)
 }

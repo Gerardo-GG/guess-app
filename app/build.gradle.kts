@@ -6,6 +6,7 @@ plugins {
 
     kotlin("kapt")
     alias(libs.plugins.hilt)
+    id("com.google.gms.google-services")
 }
 
 val localProperties = Properties()
@@ -84,6 +85,10 @@ dependencies {
     // Retrofit
     implementation(libs.bundles.retrofit)
     implementation(libs.coroutines)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
